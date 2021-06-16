@@ -1,8 +1,8 @@
 
 <!-- ----- debut Router -->
 <?php
-require ('../controller/ControllerVaccin.php');
-require ('../controller/ControllerCentre.php');
+//require ('../controller/ControllerVaccin.php');
+//require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 
 // --- récupération de l'action passée dans l'URL
@@ -23,7 +23,7 @@ $args = $param;
 
 // --- Liste des méthodes autorisées
 switch ($action) {
-    case "VaccinReadAll" :
+    /*case "VaccinReadAll" :
     case "VaccinReadOne" :
     case "VaccinReadId" :
     case "VaccinCreate" :
@@ -38,7 +38,7 @@ switch ($action) {
     case "CentreCreate" :
     case "CentreCreated" :
         ControllerCentre::$action($args);
-        break;
+        break;*/
 
     case "#" :
         ControllerCovid::$action($args);
