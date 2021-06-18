@@ -25,7 +25,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
           <?php
           // La liste des vaccins est dans une variable $results             
           foreach ($results as $element) {
-           printf("<tr><td>%d</td><td>%s</td><td>%d</td><td>%.2f</td></tr>", $element->getId(), 
+           printf("<tr><td>%d</td><td>%s</td><td>%d</td></tr>", $element->getId(), 
              $element->getLabel(), $element->getDoses());
           }
           ?>

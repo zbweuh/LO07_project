@@ -1,7 +1,7 @@
 
 <!-- ----- debut Router -->
 <?php
-('../controller/ControllerVaccin.php');
+require ('../controller/ControllerVaccin.php');
 //require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 
@@ -25,7 +25,7 @@ $args = $param;
 switch ($action) {
     case "VaccinReadAll" :
     case "VaccinReadOne" :
-    case "VaccinReadId" :
+  /*  case "VaccinReadId" :*/
     case "VaccinCreate" :
     case "VaccinCreated" :
         // --- passage des arguments au contrôleur
