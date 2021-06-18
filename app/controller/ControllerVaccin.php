@@ -31,7 +31,7 @@ class ControllerVaccin {
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewId.php';
         require ($vue);
-    }*/
+    }
 
     // Affiche un vaccin particulier (id)
     public static function VaccinReadOne() {
@@ -42,7 +42,7 @@ class ControllerVaccin {
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewAll.php';
         require ($vue);
-    }
+    }*/
 
     // Affiche le formulaire de creation d'un vaccin
     public static function VaccinCreate() {
@@ -64,15 +64,23 @@ class ControllerVaccin {
         $vue = $root . '/app/view/vaccin/viewInserted.php';
         require ($vue);
     }
+    
+    //Affiche formulaire pour mettre à jour l'atrtibut dose
+        public static function VaccinUpdate() {
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . '/app/view/vaccin/viewUpdate.php';
+        require ($vue);
+    }
 
     /*
-    public static function VaccinDeleted() {
+    public static function VaccinUpdated() {
         $vaccin_id = $_GET['id'];
-        $results = ModelVin::delete($vaccin_id);
+        $results = ModelVaccin::qqch($vaccin_id);
 
         // ----- Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewDeleted.php';
+        $vue = $root . '/app/view/vaccin/viewAll.php';
         require ($vue);
     }*/
 

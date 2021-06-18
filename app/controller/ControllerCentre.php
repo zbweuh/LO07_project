@@ -1,82 +1,43 @@
 
-<!-- ----- debut ControllerVaccin -->
+<!-- ----- debut ControllerCentre -->
 <?php
-require_once '../model/ModelVaccin.php';
+require_once '../model/ModelCentre.php';
 
-class ControllerVaccin {
+class ControllerCentre {
 
     // --- Liste des vaccins
-    public static function VaccinReadAll() {
-        $results = ModelVaccin::getAll();
+    public static function CentreReadAll() {
+        $results = ModelCentre::getAll();
         // ----- Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewAll.php';
+        $vue = $root . '/app/view/centre/viewAll.php';
         if (DEBUG)
-            echo ("ControllerVaccin : VaccinReadAll : vue = $vue");
+            echo ("ControllerCentre : CentreReadAll : vue = $vue");
         require ($vue);
     }
 
-    /*
-    // Affiche un formulaire pour sélectionner un id qui existe
-    public static function VaccinReadId($args) {
-        if (DEBUG)
-            echo ("ControllerVaccin:VaccinReadId:begin</br>");
-        $results = ModelVaccin::getAllId();
-
-        $target = $args['target'];
-        if (DEBUG)
-            echo ("ControllerVaccin:VaccinReadId : target = $target</br>");
-
+    // Affiche le formulaire de creation d'un centre
+    public static function CentreCreate() {
         // ----- Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewId.php';
-        require ($vue);
-    }*/
-
-    // Affiche un vaccin particulier (id)
-    public static function VaccinReadOne() {
-        $vaccin_id = $_GET['id'];
-        $results = ModelVaccin::getOne($vaccin_id);
-
-        // ----- Construction chemin de la vue
-        include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewAll.php';
+        $vue = $root . '/app/view/centre/viewInsert.php';
         require ($vue);
     }
 
-    // Affiche le formulaire de creation d'un vaccin
-    public static function VaccinCreate() {
-        // ----- Construction chemin de la vue
-        include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewInsert.php';
-        require ($vue);
-    }
-
-    // Affiche un formulaire pour récupérer les informations d'un nouveau vaccin.
+    // Affiche un formulaire pour récupérer les informations d'un nouveau centre.
     // La clé est gérée par le systeme et pas par l'internaute
-    public static function VaccinCreated() {
+    public static function CentreCreated() {
         // ajouter une validation des informations du formulaire
-        $results = ModelVaccin::insert(
-                        htmlspecialchars($_GET['label']), htmlspecialchars($_GET['doses'])
+        $results = ModelCentre::insert(
+                        htmlspecialchars($_GET['label']), htmlspecialchars($_GET['adresse'])
         );
         // ----- Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewInserted.php';
+        $vue = $root . '/app/view/centre/viewInserted.php';
         require ($vue);
     }
 
-    /*
-    public static function VaccinDeleted() {
-        $vaccin_id = $_GET['id'];
-        $results = ModelVin::delete($vaccin_id);
-
-        // ----- Construction chemin de la vue
-        include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewDeleted.php';
-        require ($vue);
-    }*/
-
 }
 ?>
-<!-- ----- fin ControllerVaccin -->
+<!-- ----- fin ControllerCentre -->
 
