@@ -5,7 +5,7 @@ require_once '../model/ModelCentre.php';
 
 class ControllerCentre {
 
-    // --- Liste des vaccins
+    // --- Liste des centres
     public static function CentreReadAll() {
         $results = ModelCentre::getAll();
         // ----- Construction chemin de la vue
