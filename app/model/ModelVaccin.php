@@ -84,7 +84,7 @@ class ModelVaccin {
   }
  }
 
- public static function getOne($id) {
+ /*public static function getOne($id) {
   try {
    $database = Model::getInstance();
    $query = "select * from vaccin where id = :id";
@@ -98,7 +98,7 @@ class ModelVaccin {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
    return NULL;
   }
- }
+ }*/
 
  public static function insert($label, $doses) {
   try {

@@ -100,7 +100,7 @@ class ModelCentre {
   }
  }*/
 
- public static function insert($label, $doses) {
+ public static function insert($label, $adresse) {
   try {
    $database = Model::getInstance();
 
