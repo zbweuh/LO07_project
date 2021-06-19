@@ -13,21 +13,21 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <!-- ===================================================== -->
         <?php
         if ($results) {
-            echo ("<h3>Le vaccin a été mis à jour </h3>");
+            echo ("<h3>Le vaccin a bien été modifié </h3>");
             echo("<ul>");
             echo ("<li>id = " . $results . "</li>");
             echo ("<li>label = " . $_GET['label'] . "</li>");
             echo ("<li>doses = " . $_GET['doses'] . "</li>");
             echo("</ul>");
         } else {
-            echo ("<h3>Problème d'insertion du vaccin</h3>");
-            echo ("id = " . $_GET['label']);
+            echo ("<h3>Problème de modification du vaccin</h3>");
+            echo ("label = " . $_GET['label']);
         }
 
         echo("</div>");
 
         include $root . '/app/view/fragment/fragmentCovidFooter.html';
         ?>
-        <!-- ----- fin viewUpdated -->    
+        <!-- ----- fin viewInserted -->    
 
 

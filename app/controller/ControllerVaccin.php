@@ -78,13 +78,14 @@ class ControllerVaccin {
     }
 
     public static function VaccinUpdated() {
-        $vaccin_label = $_GET['label'];
+        $label = $_GET['label'];
         $doses = $_GET['doses'];
-        $results = ModelVaccin::getOne($vaccin_label);
+        $results = ModelVaccin::update($label, $doses);
+        //$results = ModelVaccin::getAll();
 
         // ----- Construction chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/viewAll.php';
+        $vue = $root . '/app/view/vaccin/viewUpdated.php';
         require ($vue);
     }
 

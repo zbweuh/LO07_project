@@ -129,10 +129,10 @@ class ModelVaccin {
  public static function update($label, $doses) {
         try {
             $database = Model::getInstance();
-            $query = "UPDATE vaccin SET doses = doses - :doses WHERE label = :vaccin_label";
+            $query = "UPDATE vaccin SET doses = doses - :doses WHERE label = ':label'";
             $statement = $database->prepare($query);
             $statement->execute([
-                'label' => $vaccin_label,
+                'label' => $label,
                 'doses' => $doses
             ]);
             $results = TRUE;
