@@ -5,6 +5,7 @@ require ('../controller/ControllerVaccin.php');
 require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 require ('../controller/ControllerPatient.php');
+require ('../controller/ControllerStock.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -43,6 +44,10 @@ switch ($action) {
     case "PatientCreate" :
     case "PatientCreated" :
         ControllerPatient::$action($args);
+        break;
+    
+    case "StockReadAll" :
+        ControllerStock::$action($args);
         break;
 
     case "#" :
