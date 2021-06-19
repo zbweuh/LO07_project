@@ -15,9 +15,8 @@ class ControllerVaccin {
             echo ("ControllerVaccin : VaccinReadAll : vue = $vue");
         require ($vue);
     }
-
-    /*
-    // Affiche un formulaire pour sélectionner un id qui existe
+        
+    /* // Affiche un formulaire pour sélectionner un id qui existe
     public static function VaccinReadId($args) {
         if (DEBUG)
             echo ("ControllerVaccin:VaccinReadId:begin</br>");
@@ -31,8 +30,9 @@ class ControllerVaccin {
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewId.php';
         require ($vue);
-    }
+    }*/
 
+    /*
     // Affiche un vaccin particulier (id)
     public static function VaccinReadOne() {
         $vaccin_id = $_GET['id'];
@@ -67,22 +67,26 @@ class ControllerVaccin {
     
     //Affiche formulaire pour mettre à jour l'atrtibut dose
         public static function VaccinUpdate() {
+       
+        $results = ModelVaccin::getAllLabel();
+
+        
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewUpdate.php';
         require ($vue);
     }
 
-    /*
     public static function VaccinUpdated() {
-        $vaccin_id = $_GET['id'];
-        $results = ModelVaccin::qqch($vaccin_id);
+        $vaccin_label = $_GET['label'];
+        $doses = $_GET['doses'];
+        $results = ModelVaccin::getOne($vaccin_label);
 
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewAll.php';
         require ($vue);
-    }*/
+    }
 
 }
 ?>

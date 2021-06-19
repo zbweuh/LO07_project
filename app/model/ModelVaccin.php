@@ -1,4 +1,4 @@
-
+ 
 <!-- ----- debut ModelVin -->
 
 <?php
@@ -43,10 +43,10 @@ class ModelVaccin {
  
  
 // retourne une liste des id
- public static function getAllId() {
+ public static function getAllLabel() {
   try {
    $database = Model::getInstance();
-   $query = "select id from vaccin";
+   $query = "select label from vaccin";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -84,13 +84,13 @@ class ModelVaccin {
   }
  }
 
- /*public static function getOne($id) {
+ public static function getOne($label) {
   try {
    $database = Model::getInstance();
-   $query = "select * from vaccin where id = :id";
+   $query = "select * from vaccin where label = :label";
    $statement = $database->prepare($query);
    $statement->execute([
-     'id' => $id
+     'label' => $label
    ]);
    $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVaccin");
    return $results;
@@ -98,7 +98,7 @@ class ModelVaccin {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
    return NULL;
   }
- }*/
+ }
 
  public static function insert($label, $doses) {
   try {
@@ -117,7 +117,7 @@ class ModelVaccin {
    $statement->execute([
      'id' => $id,
      'label' => $label,
-     'doses' => $doses,
+     'doses' => $doses
    ]);
    return $id;
   } catch (PDOException $e) {
@@ -126,13 +126,14 @@ class ModelVaccin {
   }
  }
 
- public static function update($id) {
+ public static function update($label, $doses) {
         try {
             $database = Model::getInstance();
-            $query = "... from vaccin where id = :id";
+            $query = "UPDATE vaccin SET doses = doses - :doses WHERE label = :vaccin_label";
             $statement = $database->prepare($query);
             $statement->execute([
-                'id' => $id
+                'label' => $vaccin_label,
+                'doses' => $doses
             ]);
             $results = TRUE;
             return $results;
