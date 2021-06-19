@@ -47,6 +47,7 @@ switch ($action) {
         break;
     
     case "StockReadAll" :
+    case "StockGlobal" :
         ControllerStock::$action($args);
         break;
 

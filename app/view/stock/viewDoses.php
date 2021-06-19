@@ -1,5 +1,5 @@
 
-<!-- ----- début viewAll -->
+<!-- ----- début viewDoses -->
 <?php
 
 require ($root . '/app/view/fragment/fragmentCovidHeader.html');
@@ -12,21 +12,19 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
       include $root . '/app/view/fragment/fragmentCovidJumbotron.html';
       ?>
     
-    <h1>Vue app/view/stock/viewAll</h1>
     <table class = "table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope = "col">Centre</th>
-          <th scope = "col">Vaccin</th>
-          <th scope = "col">Quantité</th>
+          <th scope = "col">Label</th>
+          <th scope = "col">Doses</th>
         </tr>
       </thead>
       <tbody>
           <?php
           // La liste des centres est dans une variable $results             
           foreach ($results as $element) {
-           printf("<tr><td>%d</td><td>%s</td><td>%s</td></tr>", $element->getCentreId(),  //afficher les noms plutot que id
-             $element->getVaccinId(), $element->getQuantite());
+           printf("<tr><td>%d</td><td>%d</td></tr>", $element->getCentreId(), 
+             $element->getDoses()); //comment afficher la variable doses
           }
           ?>
       </tbody>
@@ -34,7 +32,7 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
   </div>
   <?php include $root . '/app/view/fragment/fragmentCovidFooter.html'; ?>
 
-  <!-- ----- fin viewAll -->
+  <!-- ----- fin viewDoses -->
   
   
   

@@ -15,6 +15,17 @@ class ControllerStock {
             echo ("ControllerStock : StockReadAll : vue = $vue");
         require ($vue);
     }
+    
+    //Liste des doses globales de chaque centre par ordre décroissant
+    public static function StockGlobal() {
+        $results = ModelStock::sum();
+        // ----- Construction chemin de la vue
+        include 'config.php';
+        $vue = $root . '/app/view/stock/viewDoses.php';
+        if (DEBUG)
+            echo ("ControllerStock : StockGlobal: vue = $vue");
+        require ($vue);
+    }
 
 }
 ?>

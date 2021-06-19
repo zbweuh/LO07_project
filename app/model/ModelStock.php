@@ -83,41 +83,22 @@ class ModelStock {
    return NULL;
   }
  }
-/*
- public static function insert($label, $adresse) {
+ 
+  public static function sum() {
   try {
    $database = Model::getInstance();
-
-   // recherche de la valeur de la clé = max(id) + 1
-   $query = "select max(id) from centre";
-   $statement = $database->query($query);
-   $tuple = $statement->fetch();
-   $id = $tuple['0'];
-   $id++;
-
-   // ajout d'un nouveau tuple;
-   $query = "insert into centre value (:id, :label, :adresse)";
+   $query = "SELECT centre_id, SUM(quantite) AS doses
+            FROM stock
+            GROUP BY centre_id
+            ORDER BY doses DESC";
    $statement = $database->prepare($query);
-   $statement->execute([
-     'id' => $id,
-     'label' => $label,
-     'adresse' => $adresse,
-   ]);
-   return $id;
+   $statement->execute();
+   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelStock");
+   return $results;
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return -1;
+   return NULL;
   }
- }*/
-
-public static function update() {
-  echo ("ModelCentre : update() TODO ....");
-  return null;
- }
-
-public static function delete() {
-  echo ("ModelCentre : delete() TODO ....");
-  return null;
  }
 
 }
