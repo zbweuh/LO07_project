@@ -11,14 +11,15 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         include $root . '/app/view/fragment/fragmentCovidMenu.html';
         include $root . '/app/view/fragment/fragmentCovidJumbotron.html';
         ?>
-        
+
         <form role="form" method='get' action='router.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='VaccinUpdated'>
-                <label for="id">label : </label> <select class="form-control" label='label' name='label' style="width: 100px">
+                <label for="id">label : </label> 
+                <select class="form-control" label='id' name='id' style="width: 100px">
                     <?php
-                    foreach ($results as $label) {
-                        echo ("<option>$label</option>");
+                    foreach ($results as $element) {
+                        echo ("<option size='20' value='".$element->getId()."'>".$element->getLabel()."</option>");
                     }
                     ?>
                 </select>

@@ -2,12 +2,20 @@
 <!-- ----- debut ControllerStock -->
 <?php
 require_once '../model/ModelStock.php';
+require_once '../model/ModelCentre.php';
+require_once '../model/ModelVaccin.php';
 
 class ControllerStock {
 
     // --- Liste des stocks des centres
     public static function StockReadAll() {
-        $results = ModelStock::getAll();
+        foreach (ModelStock::getAll() as $element) {
+            $centre = ModelCentre::getById($element->getCentreId())[0]->getLabel();
+            $vaccin = ModelVaccin::getById($element->getVaccinId())[0]->getLabel();
+            $quantite = $element->getQuantite();
+            $stocks[] = array($centre,$vaccin,$quantite);
+        }
+        $results = $stocks;
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/stock/viewAll.php';
@@ -18,7 +26,11 @@ class ControllerStock {
     
     //Liste des doses globales de chaque centre par ordre décroissant
     public static function StockGlobal() {
-        $results = ModelStock::sum();
+        foreach (ModelStock::sum() as $element) {
+            $centre = ModelCentre::getById($element[0])[0]->getLabel();
+            $stocks[] = array($centre,$element[1]);
+        }
+        $results = $stocks;
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/stock/viewDoses.php';
@@ -27,6 +39,25 @@ class ControllerStock {
         require ($vue);
     }
 
+    public static function StockAdd() {
+        $centres = ModelCentre::getAll();
+        $vaccins = ModelVaccin::getAll();
+        include 'config.php';
+        $vue = $root . '/app/view/stock/viewAdd.php';
+        require ($vue);
+    }
+    
+    public static function StockAdded() {
+        $centre = $_GET['centre'];
+        $vaccin = $_GET['vaccin'];
+        $doses = $_GET['doses'];
+        $result = ModelStock::add($centre,$vaccin,$doses);
+        $labelCentre = ModelCentre::getById($centre)[0]->getLabel();
+        $labelVaccin = ModelVaccin::getById($vaccin)[0]->getLabel();
+        include 'config.php';
+        $vue = $root . '/app/view/stock/viewAdded.php';
+        require ($vue);
+    }
 }
 ?>
 <!-- ----- fin ControllerStock -->

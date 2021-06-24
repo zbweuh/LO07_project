@@ -13,16 +13,15 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         <!-- ===================================================== -->
         <?php
         if ($result) {
-            echo ("<h3>Le vaccin a bien été ajouté </h3>");
-            echo("<ul>");
-            echo ("<li>centre : " . $vaccin->getId() . "</li>");
-            echo ("<li>vaccin : " . $vaccin->getLabel() . "</li>");
-            echo ("<li>doses : " . $vaccin->getDoses() . "</li>");
-            echo("</ul>");
+            echo ("<h3>Le stock a bien été ajouté </h3>");
         } else {
-            echo ("<h3>Problème de modification du vaccin</h3>");
-            echo ("id = " . $_GET['id']);
+            echo ("<h3>Problème d'ajout du stock</h3>");
         }
+        echo("<ul>");
+            echo ("<li>centre = " . $labelCentre . "</li>");
+            echo ("<li>vaccin = " . $labelVaccin . "</li>");
+            echo ("<li>doses = " . $doses . "</li>");
+            echo("</ul>");
 
         echo("</div>");
 

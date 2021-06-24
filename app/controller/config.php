@@ -8,24 +8,23 @@ if (!defined('DEBUG')) {
 }
 
 // Configuration de la base de données
-        $dsn = 'mysql:dbname=etiennee;host=localhost;charset=utf8';
-        $username = 'etiennee';
-        $password = '9shsNGSC';
-
+ $dsn = 'mysql:dbname=decaillv;host=localhost;charset=utf8';
+ $username = 'decaillv';
+ $password = '5FMQoCFS';
 
 // chemin absolu vers le répertoire du projet SUR DEV-ISI 
 $root = dirname(dirname(__DIR__)) . "/";
 
 
 if (DEBUG) {
- echo ("<ul>");
- echo (" <li>dsn = $dsn</li>");
- echo (" <li>username = $username</li>");
- echo (" <li>password = $password</li>");
- echo ("<li>---</li>");
- echo (" <li>root = $root</li>");
+    echo ("<ul>");
+    echo (" <li>dsn = $dsn</li>");
+    echo (" <li>username = $username</li>");
+    echo (" <li>password = $password</li>");
+    echo ("<li>---</li>");
+    echo (" <li>root = $root</li>");
 
- echo ("</ul>");
+    echo ("</ul>");
 }
 ?>
 

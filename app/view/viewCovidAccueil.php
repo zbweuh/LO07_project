@@ -2,19 +2,19 @@
 <!-- ----- debut de la page d'accueil -->
 <?php include 'fragment/fragmentCovidHeader.html'; ?>
 <body>
-  <div class="container">
-    <?php
-    include 'fragment/fragmentCovidMenu.html';
-    include 'fragment/fragmentCovidJumbotron.html';
-    ?>
-  </div>   
-  
-  
-  <?php
-  include 'fragment/fragmentCovidFooter.html';
-  ?>
+    <div class="container">
+        <?php
+        include 'fragment/fragmentCovidMenu.html';
+        include 'fragment/fragmentCovidJumbotron.html';
+        ?>
+    </div>   
 
-  <!-- ----- fin de la page -->
+
+    <?php
+    include 'fragment/fragmentCovidFooter.html';
+    ?>
+
+    <!-- ----- fin de la page -->
 
 </body>
 </html>

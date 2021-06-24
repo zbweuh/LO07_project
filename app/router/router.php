@@ -33,21 +33,23 @@ switch ($action) {
         // --- passage des arguments au contrôleur
         ControllerVaccin::$action($args);
         break;
-    
+
     case "CentreReadAll" :
     case "CentreCreate" :
     case "CentreCreated" :
         ControllerCentre::$action($args);
         break;
-    
+
     case "PatientReadAll" :
     case "PatientCreate" :
     case "PatientCreated" :
         ControllerPatient::$action($args);
         break;
-    
+
     case "StockReadAll" :
     case "StockGlobal" :
+    case "StockAdd" :
+    case "StockAdded" :
         ControllerStock::$action($args);
         break;
 
