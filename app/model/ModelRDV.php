@@ -46,7 +46,19 @@ class ModelRDV {
         $this->vaccin_id = $vaccin_id;
     }
 
-
+    public static function getByPatient($id) {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from rendezvous where patient_id= :id";
+            $statement = $database->prepare($query);
+            $statement->execute(["id" => $id]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelRDV");
+            return $results;
+        } catch (Exception $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 }
 /* 
  * To change this license header, choose License Headers in Project Properties.

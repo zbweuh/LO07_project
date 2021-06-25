@@ -6,6 +6,7 @@ require ('../controller/ControllerCentre.php');
 require ('../controller/ControllerCovid.php');
 require ('../controller/ControllerPatient.php');
 require ('../controller/ControllerStock.php');
+require ('../controller/ControllerRDV.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -53,6 +54,10 @@ switch ($action) {
         ControllerStock::$action($args);
         break;
 
+    case "RDVIdentification" :
+        ControllerRDV::$action($args);
+        break;
+    
     case "#" :
         ControllerCovid::$action($args);
         break;
