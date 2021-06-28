@@ -48,7 +48,7 @@ class ModelCentre {
             $statement = $database->prepare($query);
             $statement->execute(['id'=>$id]);
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelCentre");
-            return $results;
+            return $results[0];
          } catch (Exception $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

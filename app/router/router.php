@@ -56,9 +56,12 @@ switch ($action) {
         break;
 
     case "RDVIdentification" :
+    case "RDVSituation" :
+    case "RDVPremier" :
+    case "RDVNouveau" :
         ControllerRDV::$action($args);
         break;
-        
+    
     case "InnovationReset" :
         ControllerInnovation::$action($args);
         break;

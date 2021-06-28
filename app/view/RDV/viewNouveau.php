@@ -12,11 +12,10 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
         ?>
         <!-- ===================================================== -->
         <?php
-        echo ("<h3>Vous êtes vacciné!</h3>");
+        echo ("<h3>Votre nouveau rendez-vous est pris :</h3>");
         echo("<ul>");
         echo ("<li>centre : " . $centre->getLabel() . "</li>");
         echo ("<li>vaccin : " . $vaccin->getLabel() . "</li>");
-        echo ("<li>doses : " . $injection . "</li>");
         echo("</ul>");
 
         echo("</div>");

@@ -18,23 +18,11 @@ class ModelStock {
         }
     }
 
-    function setCentreId($centre_id) {
-        $this->centre_id = $centre_id;
-    }
-
-    function setVaccinId($vaccin_id) {
-        $this->vaccin_id = $vaccin_id;
-    }
-
-    function setQuantite($quantite) {
-        $this->quantite = $quantite;
-    }
-
-    function getCentreId() {
+    function getCentre_id() {
         return $this->centre_id;
     }
 
-    function getVaccinId() {
+    function getVaccin_id() {
         return $this->vaccin_id;
     }
 
@@ -42,7 +30,19 @@ class ModelStock {
         return $this->quantite;
     }
 
-    /*
+    function setCentre_id($centre_id) {
+        $this->centre_id = $centre_id;
+    }
+
+    function setVaccin_id($vaccin_id) {
+        $this->vaccin_id = $vaccin_id;
+    }
+
+    function setQuantite($quantite) {
+        $this->quantite = $quantite;
+    }
+
+        /*
       // retourne une liste des id
       public static function getAllId() {
       try {
@@ -112,6 +112,62 @@ class ModelStock {
                     'centre' => $centre,
                     'vaccin' => $vaccin,
                     'doses' => $doses
+                ]);
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return FALSE;
+        }
+    }
+    
+    public static function getByVaccin($id) {
+        try {
+            $database = Model::getInstance();
+            
+            $query = "select * from stock where vaccin_id=:id";
+            $statement = $database->prepare($query);
+            $statement->execute(['id' => $id]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelStock");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return FALSE;
+        }
+    }
+    
+    public static function getByCentre($id) {
+        try {
+            $database = Model::getInstance();
+            
+            $query = "select * from stock where centre_id=:id";
+            $statement = $database->prepare($query);
+            $statement->execute(['id' => $id]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS,"ModelStock");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return FALSE;
+        }
+    }
+    
+    public static function deleteOne($centre_id,$vaccin_id) {
+        try {
+            $database = Model::getInstance();
+            
+            $query = "select quantite from stock where centre_id=:centre_id and vaccin_id=:vaccin_id";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'centre_id' => $centre_id,
+                'vaccin_id' => $vaccin_id
+            ]);
+            $quantite = $statement->fetchAll(PDO::FETCH_COLUMN,0)[0];
+            $quantite--;
+            
+            $query = "update stock set quantite=:quantite where centre_id=:centre_id and vaccin_id=:vaccin_id";
+            $statement = $database->prepare($query);
+            return $statement->execute([
+                    'quantite' => $quantite,
+                    'centre_id' => $centre_id,
+                    'vaccin_id' => $vaccin_id
                 ]);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
