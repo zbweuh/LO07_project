@@ -9,7 +9,14 @@ require($root . '/app/view/fragment/fragmentCovidHeader.html');
         include $root . '/app/view/fragment/fragmentCovidJumbotron.html';
         ?>
 
-        <h3>Vous venez de réinitialiser les valeurs de la base Covid (valeurs intiales).</h3>
+        <h1>Localisation :</h1>
+        <div class="buttons">
+            <ul>
+            <?php foreach ($centres as $centre) {
+                echo "<li id='".$centre->getId()."'><a href='https://maps.google.com/?q=".$centre->getAdresse()."' target='_blank'>".$centre->getLabel()."</a></li>";
+            }?>
+            </ul>
+        </div>
 
 
     </div>
