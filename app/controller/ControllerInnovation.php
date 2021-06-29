@@ -2,6 +2,8 @@
 <!-- ----- debut ControllerInnovation -->
 <?php
 require_once '../model/ModelInnovation.php';
+require_once '../model/ModelStock.php';
+require_once '../model/ModelVaccin.php';
 
 class ControllerInnovation {
 
@@ -12,7 +14,16 @@ class ControllerInnovation {
         require ($vue);
     }
     
-    
+    public static function InnovationGraphique() {
+        foreach (ModelVaccin::getAll() as $vaccin) {
+            $stocks = ModelStock::getByVaccin($vaccin->getId());
+            $values[] = array_reduce($stocks,function ($quantite,$stock) {return $quantite+$stock->getQuantite();});
+            $labels[] = $vaccin->getLabel();
+        }
+        include 'config.php';
+        $vue = $root . '/app/view/innovation/viewGraphique.php';
+        require ($vue);
+    }
 }
 ?>
 <!-- ----- fin ControllerInnovation -->

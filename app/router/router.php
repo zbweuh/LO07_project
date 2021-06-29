@@ -63,6 +63,7 @@ switch ($action) {
         break;
     
     case "InnovationReset" :
+    case "InnovationGraphique" :
         ControllerInnovation::$action($args);
         break;
     

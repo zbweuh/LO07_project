@@ -58,6 +58,7 @@ class ControllerStock {
         $vue = $root . '/app/view/stock/viewAdded.php';
         require ($vue);
     }
+    
 }
 ?>
 <!-- ----- fin ControllerStock -->

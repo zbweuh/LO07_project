@@ -88,10 +88,9 @@ class ModelStock {
     public static function sum() {
         try {
             $database = Model::getInstance();
-            $query = "SELECT centre_id, SUM(quantite) AS doses
+            $query = "SELECT centre_id, SUM(quantite) AS doses, vaccin_id
             FROM stock
-            GROUP BY centre_id
-            ORDER BY doses DESC";
+            GROUP BY centre_id";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll();
