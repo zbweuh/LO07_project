@@ -11,6 +11,8 @@ class ControllerInnovation {
         $vue = $root . '/app/view/innovation/viewReset.php';
         require ($vue);
     }
+    
+    
 }
 ?>
 <!-- ----- fin ControllerInnovation -->

@@ -10,8 +10,8 @@ class ControllerStock {
     // --- Liste des stocks des centres
     public static function StockReadAll() {
         foreach (ModelStock::getAll() as $element) {
-            $centre = ModelCentre::getById($element->getCentreId())->getLabel();
-            $vaccin = ModelVaccin::getById($element->getVaccinId())->getLabel();
+            $centre = ModelCentre::getById($element->getCentre_id())->getLabel();
+            $vaccin = ModelVaccin::getById($element->getVaccin_id())->getLabel();
             $quantite = $element->getQuantite();
             $stocks[] = array($centre,$vaccin,$quantite);
         }

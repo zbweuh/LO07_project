@@ -105,14 +105,31 @@ class ModelStock {
     public static function add($centre,$vaccin,$doses) {
         try {
             $database = Model::getInstance();
-            
-            $query = "insert into stock value (:centre, :vaccin, :doses)";
+            $query = "select quantite from stock where centre_id=:centre and vaccin_id=:vaccin";
             $statement = $database->prepare($query);
-            return $statement->execute([
+            $statement->execute([
+                'centre' => $centre,
+                'vaccin' => $vaccin
+            ]);
+            $result = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+            if (empty($result)) {
+                $query = "insert into stock value (:centre, :vaccin, :doses)";
+                $statement = $database->prepare($query);
+                return $statement->execute([
                     'centre' => $centre,
                     'vaccin' => $vaccin,
                     'doses' => $doses
                 ]);
+            } else {
+                $query = "update stock set quantite=:doses where centre_id=:centre and vaccin_id=:vaccin";
+                $statement = $database->prepare($query);
+                return $statement->execute([
+                    'centre' => $centre,
+                    'vaccin' => $vaccin,
+                    'doses' => $doses+$result[0]
+                ]);
+            }
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return FALSE;
