@@ -22,15 +22,11 @@ require ($root . '/app/view/fragment/fragmentCovidHeader.html');
                     }?>
                 </select>
                 <br>
-                <label for="vaccin">Vaccin : </label>
-                <select name="vaccin" id="vaccin">
-                    <?php foreach($vaccins as $element) {
-                        echo "<option value='".$element->getId()."'>".$element->getLabel()."</option>";
-                    }?>
-                </select>
+                <?php foreach($vaccins as $element) {
+                    echo "<label for='".$element->getLabel()."'>Dose de ".$element->getLabel()." : </label>";
+                    echo "<input type='number' name='".$element->getId()."' id='".$element->getLabel()."' value='1'><br>";
+                }?>
                 <br>
-                <label for="doses">Doses :</label>
-                <input type="number" name='doses' id="doses" size='50' value='1'>       
             </div>
             <p/>
             <button class="btn btn-primary" type="submit">Go</button>

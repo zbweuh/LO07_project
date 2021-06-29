@@ -49,11 +49,14 @@ class ControllerStock {
     
     public static function StockAdded() {
         $centre = $_GET['centre'];
-        $vaccin = $_GET['vaccin'];
-        $doses = $_GET['doses'];
-        $result = ModelStock::add($centre,$vaccin,$doses);
+        unset($_GET['centre']);
+        unset($_GET['action']);
+        print_r($_GET);
+        foreach ($_GET as $vaccin=>$dose) {
+            ModelStock::add($centre,$vaccin,$dose);
+            $results[] = array(ModelVaccin::getById($vaccin),$dose);
+        }
         $labelCentre = ModelCentre::getById($centre)->getLabel();
-        $labelVaccin = ModelVaccin::getById($vaccin)->getLabel();
         include 'config.php';
         $vue = $root . '/app/view/stock/viewAdded.php';
         require ($vue);

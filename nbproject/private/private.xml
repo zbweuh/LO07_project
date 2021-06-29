@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/controller/ControllerInnovation.php</file>
             <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/controller/ControllerStock.php</file>
-            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/view/stock/viewAll.php</file>
-            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/controller/ControllerRDV.php</file>
-            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/model/ModelCentre.php</file>
+            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/view/vaccin/viewUpdate.php</file>
+            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/router/router.php</file>
             <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/model/ModelStock.php</file>
+            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/controller/ControllerVaccin.php</file>
+            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/view/stock/viewAdded.php</file>
+            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/view/stock/viewAdd.php</file>
             <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/index.php</file>
-            <file>file:/C:/Users/valer/OneDrive/Documents/_UTT/P21/LO07/local/app/view/stock/viewDoses.php</file>
         </group>
     </open-files>
 </project-private>
