@@ -12,9 +12,9 @@ require($root . '/app/view/fragment/fragmentCovidHeader.html');
         <h3>Innovation 1</h3>
         
         <p>
-            Pour cette innovation, nous avons choisit de proposer de réinitialiser les données.
-            Pour cela nous supprimons toutes les tables de la base de données, puis nous lancons directement les fichiers covid_create.sql et covid_insert.sql.
-            Cela nous à appris à utiliser les fichier directement plutot que les requêtes, en plus d'être très utile pour le teste de fonctionnement du site.
+            Pour cette innovation, nous avons choisi de proposer de réinitialiser les données.
+            Pour cela nous supprimons toutes les tables de la base de données, puis nous lançons directement les fichiers covid_create.sql et covid_insert.sql.
+            Cela nous a appris à utiliser les fichiers directement plutôt que les requêtes, en plus d'être très utile pour le test de fonctionnement du site.
         </p>
 
 

@@ -9,7 +9,7 @@ require($root . '/app/view/fragment/fragmentCovidHeader.html');
         include $root . '/app/view/fragment/fragmentCovidJumbotron.html';
         ?>
 
-        <h3>Vous venez de réinitialiser les valeurs de la base Covid (valeurs intiales).</h3>
+        <h4>Vous venez de réinitialiser les valeurs de la base Covid (valeurs intiales).</h4>
 
 
     </div>
